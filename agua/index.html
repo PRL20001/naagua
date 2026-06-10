@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Água Fácil – Água de Qualidade Entregue na Sua Casa</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Segoe UI',Arial,sans-serif;color:#222}
+  a{text-decoration:none;color:inherit}
+
+  /* NAV */
+  nav{display:flex;align-items:center;justify-content:space-between;padding:14px 6%;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.08);position:sticky;top:0;z-index:100}
+  .logo{display:flex;align-items:center;gap:8px}
+  .logo svg{width:38px;height:38px}
+  .logo-text{line-height:1.1}
+  .logo-text strong{display:block;font-size:1.25rem;color:#0047AB;letter-spacing:.5px}
+  .logo-text span{font-size:.7rem;color:#0047AB;letter-spacing:2px}
+  .nav-links{display:flex;gap:32px;list-style:none}
+  .nav-links a{font-size:.88rem;font-weight:600;color:#333;border-bottom:2px solid transparent;padding-bottom:2px;transition:.2s}
+  .nav-links a.active,.nav-links a:hover{color:#0047AB;border-color:#0047AB}
+  .btn-nav{background:#0047AB;color:#fff;border:none;border-radius:6px;padding:10px 20px;font-size:.88rem;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:7px;transition:.2s}
+  .btn-nav:hover{background:#003080}
+
+  /* HERO */
+  .hero{background:linear-gradient(120deg,#0047AB 55%,#3a9bd5 100%);padding:60px 6%;display:flex;align-items:center;justify-content:space-between;gap:32px;overflow:hidden;position:relative}
+  .hero-text{flex:1;color:#fff;max-width:460px}
+  .hero-text h1{font-size:3rem;font-weight:900;line-height:1.1;text-transform:uppercase;margin-bottom:10px}
+  .hero-text h2{font-size:1.4rem;font-weight:700;text-transform:uppercase;margin-bottom:18px;opacity:.92}
+  .hero-text p{font-size:.95rem;opacity:.88;margin-bottom:28px;line-height:1.6}
+  .hero-badges{display:flex;gap:22px;margin-bottom:32px}
+  .badge{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:.7rem;font-weight:700;text-transform:uppercase;color:#fff;opacity:.9}
+  .badge svg{width:28px;height:28px}
+  .btn-whatsapp{background:#25D366;color:#fff;border:none;border-radius:8px;padding:14px 28px;font-size:1rem;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:10px;transition:.2s;box-shadow:0 4px 14px rgba(37,211,102,.35)}
+  .btn-whatsapp:hover{background:#1ebe5d;transform:translateY(-2px)}
+  .hero-img{flex:1;display:flex;justify-content:center;align-items:center;max-width:420px}
+  .hero-img img{width:100%;max-width:400px;filter:drop-shadow(0 20px 40px rgba(0,0,0,.25));animation:float 3s ease-in-out infinite}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-16px)}}
+
+  /* SECTION TITLE */
+  .section-title{text-align:center;margin-bottom:40px}
+  .section-title h2{font-size:1.6rem;font-weight:900;text-transform:uppercase;color:#1a1a2e;letter-spacing:1px}
+  .section-title .bar{width:48px;height:3px;background:#0047AB;margin:10px auto 0}
+
+  /* COMO FUNCIONA */
+  .como-funciona{padding:64px 6%;background:#fff}
+  .steps{display:flex;align-items:flex-start;justify-content:center;gap:0;flex-wrap:wrap}
+  .step{display:flex;flex-direction:column;align-items:center;text-align:center;max-width:160px}
+  .step-icon{width:72px;height:72px;border-radius:50%;background:#0047AB;display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+  .step-icon svg{width:34px;height:34px;fill:#fff}
+  .step h3{font-size:.8rem;font-weight:800;text-transform:uppercase;color:#0047AB;margin-bottom:6px}
+  .step p{font-size:.8rem;color:#555;line-height:1.5}
+  .arrow{font-size:1.6rem;color:#0047AB;margin:0 8px;padding-top:20px;opacity:.5}
+
+  /* PRODUTOS */
+  .produtos{padding:64px 6%;background:#f7f9fc}
+  .produtos-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin-bottom:32px}
+  .produto-card{background:#fff;border-radius:12px;border:1.5px solid #e4eaf3;padding:22px;display:flex;gap:18px;align-items:flex-start;transition:.2s}
+  .produto-card:hover{box-shadow:0 8px 28px rgba(0,71,171,.13);transform:translateY(-3px)}
+  .produto-img{width:90px;height:110px;object-fit:contain;flex-shrink:0}
+  .produto-info h3{font-size:.95rem;font-weight:800;text-transform:uppercase;color:#1a1a2e;margin-bottom:6px}
+  .produto-info p{font-size:.82rem;color:#666;margin-bottom:12px;line-height:1.5}
+  .produto-preco{font-size:1.3rem;font-weight:900;color:#0047AB;margin-bottom:12px}
+  .btn-pedir{background:#0047AB;color:#fff;border:none;border-radius:6px;padding:9px 18px;font-size:.82rem;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:7px;transition:.2s}
+  .btn-pedir:hover{background:#003080}
+  .btn-outline{display:block;width:fit-content;margin:0 auto;border:1.5px solid #0047AB;color:#0047AB;background:transparent;border-radius:8px;padding:12px 36px;font-size:.92rem;font-weight:700;cursor:pointer;transition:.2s}
+  .btn-outline:hover{background:#0047AB;color:#fff}
+
+  /* CTA BANNER */
+  .cta-banner{background:#0047AB;padding:36px 6%;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+  .cta-banner-text{display:flex;align-items:center;gap:18px;color:#fff}
+  .cta-banner-text svg{width:48px;height:48px;flex-shrink:0;fill:#fff;opacity:.9}
+  .cta-banner-text h3{font-size:1.15rem;font-weight:800;text-transform:uppercase}
+  .cta-banner-text p{font-size:.88rem;opacity:.85}
+  .btn-whatsapp-green{background:#25D366;color:#fff;border:none;border-radius:8px;padding:14px 28px;font-size:.95rem;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:10px;transition:.2s}
+  .btn-whatsapp-green:hover{background:#1ebe5d}
+
+  /* FOOTER */
+  footer{background:#0d2b6b;color:#fff;padding:52px 6% 24px}
+  .footer-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:40px;margin-bottom:36px}
+  .footer-col h4{font-size:.85rem;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:16px;color:#fff}
+  .footer-col p{font-size:.82rem;color:#9bb4dd;line-height:1.7}
+  .footer-col ul{list-style:none}
+  .footer-col ul li{margin-bottom:8px}
+  .footer-col ul li a{font-size:.82rem;color:#9bb4dd;transition:.2s}
+  .footer-col ul li a:hover{color:#fff}
+  .footer-contact-item{display:flex;align-items:center;gap:10px;margin-bottom:10px;font-size:.82rem;color:#9bb4dd}
+  .footer-contact-item svg{width:18px;height:18px;fill:#25D366;flex-shrink:0}
+  .footer-bottom{border-top:1px solid rgba(255,255,255,.12);padding-top:20px;text-align:center;font-size:.78rem;color:#7a9ac4}
+  .footer-logo{display:flex;align-items:center;gap:8px;margin-bottom:14px}
+  .footer-logo strong{font-size:1.1rem;color:#fff;letter-spacing:.5px}
+
+  /* RESPONSIVE */
+  @media(max-width:768px){
+    .hero{flex-direction:column;padding:40px 5%;text-align:center}
+    .hero-text h1{font-size:2rem}
+    .hero-badges{justify-content:center}
+    .hero-img{max-width:280px}
+    .steps{gap:16px}
+    .arrow{display:none}
+    .footer-grid{grid-template-columns:1fr}
+    .nav-links{display:none}
+    .cta-banner{flex-direction:column;text-align:center}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">
+    <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M20 4C20 4 8 18 8 26a12 12 0 0024 0C32 18 20 4 20 4z" fill="#0047AB"/>
+      <path d="M20 10C20 10 12 21 12 27a8 8 0 0016 0C28 21 20 10 20 10z" fill="#3a9bd5"/>
+      <ellipse cx="16" cy="24" rx="3" ry="4" fill="white" opacity=".35" transform="rotate(-20 16 24)"/>
+    </svg>
+    <div class="logo-text"><strong>ÁGUA</strong><span>FÁCIL</span></div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#" class="active">Início</a></li>
+    <li><a href="#produtos">Produtos</a></li>
+    <li><a href="#como-funciona">Como Funciona</a></li>
+    <li><a href="#sobre">Sobre Nós</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+  <button class="btn-nav">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.132.558 4.133 1.528 5.874L.057 23.879a.5.5 0 00.611.632l6.154-1.611A11.942 11.942 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.9 0-3.68-.523-5.2-1.426l-.374-.222-3.856 1.009 1.03-3.752-.243-.386A9.934 9.934 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+    Pedir Agora
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <h1>ÁGUA DE<br>QUALIDADE</h1>
+    <h2>ENTREGUE NA<br>SUA CASA!</h2>
+    <p>Água pura e cristalina. Entrega rápida,<br>segura e com o melhor preço da região.</p>
+    <div class="hero-badges">
+      <div class="badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        ENTREGA<br>RÁPIDA
+      </div>
+      <div class="badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        ÁGUA DE<br>QUALIDADE
+      </div>
+      <div class="badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+        MELHOR<br>PREÇO
+      </div>
+    </div>
+    <button class="btn-whatsapp" onclick="window.open('https://wa.me/5511999999999','_blank')">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.132.558 4.133 1.528 5.874L.057 23.879a.5.5 0 00.611.632l6.154-1.611A11.942 11.942 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.9 0-3.68-.523-5.2-1.426l-.374-.222-3.856 1.009 1.03-3.752-.243-.386A9.934 9.934 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+      PEDIR PELO WHATSAPP
+    </button>
+  </div>
+  <div class="hero-img">
+    <!-- Galão de água SVG ilustrativo -->
+    <svg viewBox="0 0 320 420" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:340px;filter:drop-shadow(0 30px 50px rgba(0,0,0,.3))">
+      <!-- respingos de água ao redor -->
+      <ellipse cx="60" cy="200" rx="18" ry="10" fill="#90caf9" opacity=".5" transform="rotate(-20 60 200)"/>
+      <ellipse cx="260" cy="180" rx="14" ry="8" fill="#90caf9" opacity=".5" transform="rotate(15 260 180)"/>
+      <ellipse cx="40" cy="320" rx="22" ry="12" fill="#64b5f6" opacity=".4" transform="rotate(10 40 320)"/>
+      <ellipse cx="280" cy="310" rx="18" ry="9" fill="#64b5f6" opacity=".4" transform="rotate(-10 280 310)"/>
+      <path d="M50 240 Q30 220 45 200 Q55 185 60 200" stroke="#64b5f6" stroke-width="3" fill="none" opacity=".6"/>
+      <path d="M270 260 Q295 240 285 215 Q278 200 265 215" stroke="#64b5f6" stroke-width="3" fill="none" opacity=".6"/>
+      <!-- Tampa -->
+      <rect x="128" y="30" width="64" height="14" rx="4" fill="#0d47a1"/>
+      <rect x="120" y="44" width="80" height="22" rx="6" fill="#1565c0"/>
+      <!-- Corpo do galão -->
+      <path d="M100 66 Q80 80 76 120 L72 330 Q72 370 160 370 Q248 370 248 330 L244 120 Q240 80 220 66 Z" fill="#bbdefb"/>
+      <!-- Brilho -->
+      <path d="M108 80 Q90 110 88 180 L88 300 Q96 320 108 320 L108 80Z" fill="white" opacity=".25"/>
+      <!-- Reflexo diagonal -->
+      <path d="M120 70 L130 70 L115 200 L105 200 Z" fill="white" opacity=".18"/>
+      <!-- Rótulo fundo -->
+      <rect x="90" y="170" width="140" height="140" rx="8" fill="white" opacity=".9"/>
+      <!-- Rótulo logo droplet -->
+      <path d="M160 185 C160 185 150 197 150 203 a10 10 0 0020 0 C170 197 160 185 160 185z" fill="#0047AB"/>
+      <path d="M160 189 C160 189 154 198 154 203 a6 6 0 0012 0 C166 198 160 189 160 189z" fill="#3a9bd5"/>
+      <!-- Rótulo texto ÁGUA FÁCIL -->
+      <text x="160" y="225" text-anchor="middle" font-family="Arial Black,Arial" font-weight="900" font-size="15" fill="#0047AB">ÁGUA</text>
+      <text x="160" y="240" text-anchor="middle" font-family="Arial" font-size="9" fill="#0047AB" letter-spacing="3">FÁCIL</text>
+      <line x1="98" y1="248" x2="222" y2="248" stroke="#e0e0e0" stroke-width="1"/>
+      <text x="160" y="263" text-anchor="middle" font-family="Arial" font-size="8" fill="#888">ÁGUA MINERAL NATURAL</text>
+      <text x="160" y="298" text-anchor="middle" font-family="Arial Black" font-size="20" fill="#0047AB">20L</text>
+      <!-- Alças laterais -->
+      <rect x="68" y="130" width="16" height="60" rx="8" fill="#1565c0"/>
+      <rect x="236" y="130" width="16" height="60" rx="8" fill="#1565c0"/>
+      <!-- Base do galão -->
+      <ellipse cx="160" cy="368" rx="88" ry="12" fill="#1565c0" opacity=".4"/>
+    </svg>
+  </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section class="como-funciona" id="como-funciona">
+  <div class="section-title">
+    <h2>Como Funciona</h2>
+    <div class="bar"></div>
+  </div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-icon">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.132.558 4.133 1.528 5.874L.057 23.879a.5.5 0 00.611.632l6.154-1.611A11.942 11.942 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.9 0-3.68-.523-5.2-1.426l-.374-.222-3.856 1.009 1.03-3.752-.243-.386A9.934 9.934 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+      </div>
+      <h3>1. Faça seu Pedido</h3>
+      <p>Fale conosco pelo WhatsApp ou pelo site.</p>
+    </div>
+    <div class="arrow">→</div>
+    <div class="step">
+      <div class="step-icon">
+        <svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10" stroke-width="2"/></svg>
+      </div>
+      <h3>2. Confirme</h3>
+      <p>Informe o endereço e a forma de pagamento.</p>
+    </div>
+    <div class="arrow">→</div>
+    <div class="step">
+      <div class="step-icon">
+        <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+      </div>
+      <h3>3. Entregamos</h3>
+      <p>Entrega rápida e segura na sua casa.</p>
+    </div>
+    <div class="arrow">→</div>
+    <div class="step">
+      <div class="step-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2C8 2 8 8 8 12c0 5 2 8 4 8s4-3 4-8c0-4 0-10-4-10z"/><line x1="12" y1="22" x2="12" y2="18"/><path d="M8 18h8"/></svg>
+      </div>
+      <h3>4. Aproveite</h3>
+      <p>Água de qualidade para você e sua família!</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUTOS -->
+<section class="produtos" id="produtos">
+  <div class="section-title">
+    <h2>Nossos Produtos</h2>
+    <div class="bar"></div>
+  </div>
+  <div class="produtos-grid">
+    <!-- Card 1 -->
+    <div class="produto-card">
+      <svg class="produto-img" viewBox="0 0 90 120" xmlns="http://www.w3.org/2000/svg">
+        <rect x="32" y="8" width="26" height="8" rx="3" fill="#1565c0"/>
+        <rect x="28" y="16" width="34" height="10" rx="4" fill="#1976d2"/>
+        <path d="M22 26 Q16 34 15 55 L14 95 Q14 112 45 112 Q76 112 76 95 L75 55 Q74 34 68 26 Z" fill="#bbdefb"/>
+        <path d="M26 32 Q20 45 20 75 L20 95 Q24 105 30 105 L30 32Z" fill="white" opacity=".22"/>
+        <rect x="26" y="55" width="38" height="38" rx="5" fill="white" opacity=".88"/>
+        <text x="45" y="73" text-anchor="middle" font-family="Arial Black" font-size="6" fill="#0047AB">ÁGUA FÁCIL</text>
+        <text x="45" y="85" text-anchor="middle" font-family="Arial Black" font-size="8" fill="#0047AB">20L</text>
+        <rect x="12" y="44" width="8" height="22" rx="4" fill="#1565c0"/>
+        <rect x="70" y="44" width="8" height="22" rx="4" fill="#1565c0"/>
+      </svg>
+      <div class="produto-info">
+        <h3>Água Mineral 20L</h3>
+        <p>Água mineral natural de qualidade.</p>
+        <div class="produto-preco">R$ 14,00</div>
+        <button class="btn-pedir" onclick="window.open('https://wa.me/5511999999999','_blank')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.132.558 4.133 1.528 5.874L.057 23.879a.5.5 0 00.611.632l6.154-1.611A11.942 11.942 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.9 0-3.68-.523-5.2-1.426l-.374-.222-3.856 1.009 1.03-3.752-.243-.386A9.934 9.934 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+          Pedir Agora
+        </button>
+      </div>
+    </div>
+    <!-- Card 2 -->
+    <div class="produto-card">
+      <svg class="produto-img" viewBox="0 0 90 120" xmlns="http://www.w3.org/2000/svg">
+        <rect x="32" y="8" width="26" height="8" rx="3" fill="#0d47a1"/>
+        <rect x="28" y="16" width="34" height="10" rx="4" fill="#1565c0"/>
+        <path d="M22 26 Q16 34 15 55 L14 95 Q14 112 45 112 Q76 112 76 95 L75 55 Q74 34 68 26 Z" fill="#90caf9"/>
+        <path d="M26 32 Q20 45 20 75 L20 95 Q24 105 30 105 L30 32Z" fill="white" opacity=".22"/>
+        <rect x="26" y="55" width="38" height="38" rx="5" fill="white" opacity=".88"/>
+        <text x="45" y="73" text-anchor="middle" font-family="Arial Black" font-size="6" fill="#0047AB">ÁGUA FÁCIL</text>
+        <text x="45" y="85" text-anchor="middle" font-family="Arial Black" font-size="8" fill="#0047AB">20L</text>
+        <rect x="12" y="44" width="8" height="22" rx="4" fill="#1565c0"/>
+        <rect x="70" y="44" width="8" height="22" rx="4" fill="#1565c0"/>
+      </svg>
+      <div class="produto-info">
+        <h3>Água Mineral 20L</h3>
+        <p>Água mineral natural com pH balanceado.</p>
+        <div class="produto-preco">R$ 15,00</div>
+        <button class="btn-pedir" onclick="window.open('https://wa.me/5511999999999','_blank')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.132.558 4.133 1.528 5.874L.057 23.879a.5.5 0 00.611.632l6.154-1.611A11.942 11.942 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.9 0-3.68-.523-5.2-1.426l-.374-.222-3.856 1.009 1.03-3.752-.243-.386A9.934 9.934 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+          Pedir Agora
+        </button>
+      </div>
+    </div>
+    <!-- Card 3 -->
+    <div class="produto-card">
+      <svg class="produto-img" viewBox="0 0 90 120" xmlns="http://www.w3.org/2000/svg">
+        <rect x="32" y="8" width="26" height="8" rx="3" fill="#003c8f"/>
+        <rect x="28" y="16" width="34" height="10" rx="4" fill="#0d47a1"/>
+        <path d="M22 26 Q16 34 15 55 L14 95 Q14 112 45 112 Q76 112 76 95 L75 55 Q74 34 68 26 Z" fill="#e3f2fd"/>
+        <path d="M26 32 Q20 45 20 75 L20 95 Q24 105 30 105 L30 32Z" fill="white" opacity=".32"/>
+        <rect x="26" y="55" width="38" height="38" rx="5" fill="white" opacity=".88"/>
+        <text x="45" y="73" text-anchor="middle" font-family="Arial Black" font-size="6" fill="#0047AB">ÁGUA FÁCIL</text>
+        <text x="45" y="85" text-anchor="middle" font-family="Arial Black" font-size="8" fill="#0047AB">20L</text>
+        <rect x="12" y="44" width="8" height="22" rx="4" fill="#0d47a1"/>
+        <rect x="70" y="44" width="8" height="22" rx="4" fill="#0d47a1"/>
+      </svg>
+      <div class="produto-info">
+        <h3>Água Mineral 20L</h3>
+        <p>Água mineral natural extra premium.</p>
+        <div class="produto-preco">R$ 16,00</div>
+        <button class="btn-pedir" onclick="window.open('https://wa.me/5511999999999','_blank')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.132.558 4.133 1.528 5.874L.057 23.879a.5.5 0 00.611.632l6.154-1.611A11.942 11.942 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.9 0-3.68-.523-5.2-1.426l-.374-.222-3.856 1.009 1.03-3.752-.243-.386A9.934 9.934 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+          Pedir Agora
+        </button>
+      </div>
+    </div>
+  </div>
+  <button class="btn-outline">Ver Todos os Produtos</button>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner">
+  <div class="cta-banner-text">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.132.558 4.133 1.528 5.874L.057 23.879a.5.5 0 00.611.632l6.154-1.611A11.942 11.942 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.9 0-3.68-.523-5.2-1.426l-.374-.222-3.856 1.009 1.03-3.752-.243-.386A9.934 9.934 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+    <div>
+      <h3>Peça Agora pelo WhatsApp</h3>
+      <p>Atendimento rápido e entrega no mesmo dia!</p>
+    </div>
+  </div>
+  <button class="btn-whatsapp-green" onclick="window.open('https://wa.me/5511999999999','_blank')">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.132.558 4.133 1.528 5.874L.057 23.879a.5.5 0 00.611.632l6.154-1.611A11.942 11.942 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.9 0-3.68-.523-5.2-1.426l-.374-.222-3.856 1.009 1.03-3.752-.243-.386A9.934 9.934 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+    CHAMAR NO WHATSAPP
+  </button>
+</section>
+
+<!-- FOOTER -->
+<footer id="contato">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <div class="footer-logo">
+        <svg width="30" height="30" viewBox="0 0 40 40"><path d="M20 4C20 4 8 18 8 26a12 12 0 0024 0C32 18 20 4 20 4z" fill="#90caf9"/><path d="M20 10C20 10 12 21 12 27a8 8 0 0016 0C28 21 20 10 20 10z" fill="#64b5f6"/></svg>
+        <strong>ÁGUA FÁCIL</strong>
+      </div>
+      <p>Água de qualidade entregue<br>com rapidez e segurança<br>na sua casa.</p>
+    </div>
+    <div class="footer-col" id="sobre">
+      <h4>Links Rápidos</h4>
+      <ul>
+        <li><a href="#">Início</a></li>
+        <li><a href="#produtos">Produtos</a></li>
+        <li><a href="#como-funciona">Como Funciona</a></li>
+        <li><a href="#">Sobre Nós</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contato</h4>
+      <div class="footer-contact-item">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.132.558 4.133 1.528 5.874L.057 23.879a.5.5 0 00.611.632l6.154-1.611A11.942 11.942 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.9 0-3.68-.523-5.2-1.426l-.374-.222-3.856 1.009 1.03-3.752-.243-.386A9.934 9.934 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        (11) 99999-9999
+      </div>
+      <div class="footer-contact-item">
+        <svg viewBox="0 0 24 24" fill="#9bb4dd"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" fill="#0d2b6b"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="#0d2b6b" stroke-width="2" stroke-linecap="round"/></svg>
+        @aguafacil
+      </div>
+      <div class="footer-contact-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#25D366" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        São Paulo - SP
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2024 Água Fácil. Todos os direitos reservados.</div>
+</footer>
+
+<script>
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click',e=>{
+      const t=document.querySelector(a.getAttribute('href'));
+      if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'})}
+    })
+  });
+</script>
+</body>
+</html>
